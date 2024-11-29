@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+
+import hero from '../images/image.png';
+---
+
+<section class="hero rel fcc">
+	<Image src={hero} width={hero.width/2} densities={[1,2]} alt="Gente conversando" />
+	<div class="space fs">
+		<div class="fcol max">
+			<h1>Encuentra a tu roomie ideal en Perú con Roomiesfy</h1>
+			<p>La app que conecta a personas compatibles para compartir hogar de forma segura, eficiente y divertida.</p>
+			<div class="fc btns">
+				<a href="/#demo" class="btn" data-text="Ver demo">Mira el demo</a>
+				<a href="/#contacto" class="btn btn-outline" data-text="Quiero ser el primero">Sé el primero en enterarte</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		overflow: hidden;
+		min-height: 100dvh;
+		padding-top: 108px;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		aspect-ratio: unset;
+		position: absolute;
+		z-index: -1;
+		inset: 0;
+	}
+	.space {
+		width: 100%;
+		max-width: 1288px;
+		margin: auto;
+		padding-inline: 24px;
+	}
+	.max {
+		max-width: 700px;
+	}
+	.fcol {
+		gap: 36px;
+	}
+	.btns {
+		gap: 12px;
+	}
+	h1 {
+		font-size: 60px;
+		line-height: 1;
+		color: var(--blue);
+	}
+	@media (max-width: 700px) {
+		h1 {
+			font-size: 40px;
+		}
+		p {
+			font-size: 20px;
+		}
+		.btns {
+			align-items: stretch;
+			flex-direction: column;
+		}
+		.space {
+			margin-bottom: 24px;
+		}
+	}
+</style>

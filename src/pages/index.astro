@@ -1,0 +1,394 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Paso from "../components/Paso.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
+import Carousel from "../components/Carousel.astro";
+import { Image } from "astro:assets";
+
+import iphone from "../images/iphone.png"
+import first from "../images/first.png"
+import second from "../images/second.png"
+import third from "../images/third.png"
+---
+
+<Layout title="Roomiesfy">
+	<Header />
+	<Hero />
+	<section id="que" class="que">
+		<header>
+			<h1>¿Qué es Roomiesfy?</h1>
+			<p>
+				<strong>Roomiesfy</strong> es la nueva app que facilita la búsqueda de
+				roommates compatibles y seguros en Perú. Diseñada para <strong>jóvenes
+				profesionales</strong>, estudiantes y cualquier persona que busque y
+				quiera compartir un lugar para vivir con tranquilidad y buena compañía.
+			</p>
+		</header>
+	</section>
+	<section id="beneficios" class="beneficios">
+		<header>
+			<h1>Beneficios destacados:</h1>
+		</header>
+		<div class="content">
+			<article class="card fc">
+				<div class="text fcol fs">
+					<h1 class="fcol"><span>Compatibilidad</span> <span>Asegurada</span></h1>
+					<p>Sistema de matching avanzado que conecta con personas de intereses, hábitos y estilos de vida similares.</p>
+				</div>
+				<Image src={first} width={first.width/2} densities={[1,2]} alt="Compatibilidad entre dos personas" />
+			</article>
+			<article class="card fc">
+				<div class="text fcol fs">
+					<h1 class="fcol"><span>Contratos</span> <span>automáticos</span> <span>y seguros</span></h1>
+					<p>Generación de contratos personalizados con soporte legal opcional.</p>
+				</div>
+				<Image src={second} width={second.width/2} densities={[1,2]} alt="Contrato Inteligente" />
+			</article>
+			<article class="card fc">
+				<div class="text fcol fs">
+					<h1 class="fcol"><span>Soporte de IA</span> <span>todo momento</span></h1>
+					<p>Chatbot integrado para responder preguntas sobre los espacios, los roommates y el proceso de alquiler.</p>
+				</div>
+				<Image src={third} width={third.width/2} densities={[1,2]} alt="Robot asistente de IA" />
+			</article>
+		</div>
+	</section>
+	<section class="como">
+		<header>
+			<h1>¿Cómo funciona Roomiesfy?</h1>
+			<p>
+				Con <strong>Roomiesfy</strong>, encontrar a tu roommate ideal será fácil
+				y seguro. Así es cómo funciona.
+			</p>
+		</header>
+		<div class="content fs">
+			<div class="fcol">
+				<Paso num="01" text="Crea tu perfil y personalízalo según tus preferencias y estilo de vida.">
+					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+				</Paso>
+				<Paso num="02" text="Encuentra matches compatibles que cumplen con tus intereses y expectativas de convivencia.">
+					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+				</Paso>
+				<Paso num="03" text="Visita el espacio virtualmente y chatea con tus posibles roommates.">
+					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+				</Paso>
+				<Paso num="04" text="Finaliza el acuerdo con un contrato digital y comienza una convivencia ideal.">
+					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+				</Paso>
+			</div>
+			<Image src={iphone} alt="Caputura de la aplicación de Roomiesfy" width={iphone.width/2} densities={[1,2]} format="avif"/>
+		</div>
+	</section>
+	<section id="demo" class="demo">
+		<header>
+			<h1>Demo de Roomiesfy</h1>
+			<p>
+				<strong>Explora Roomiesfy.</strong><br/>Conoce cómo Roomiesfy facilita
+				la búsqueda de roommates y la gestión de contratos en un recorrido
+				interactivo de la app.
+			</p>
+		</header>
+		<div class="content">
+			<video controls preload="metadata" poster="poster.avif">
+				<source src="video.webm" type="video/webm">
+				<source src="video.mp4" type="video/mp4">
+				Tu navegador no soporta videos. Por favor, actualízalo para reproducir este contenido.
+			</video>
+		</div>
+	</section>
+	<section id="testimonios" class="testimonios">
+		<header>
+			<h1>Testimonios</h1>
+			<p>
+				<strong>¿Por qué los peruanos eligirán Roomiesfy? </strong><br/>Escucha
+				lo que estudiantes, jóvenes profesionales y extranjeros esperan de la
+				app que cambiará la manera de buscar vivienda compartida en Perú.
+			</p>
+		</header>
+		<div class="content fcol fc">
+			<Carousel/>
+		</div>
+	</section>
+	<section id="contacto" class="contacto">
+		<header>
+			<h1>Sé el primero en enterarte</h1>
+			<p>
+				<strong>¿Quieres saber cuándo Roomiesfy estará disponible?</strong>
+				<br/>Déjanos tus datos y sé el primero en recibir noticias sobre el
+				lanzamiento.
+			</p>
+		</header>
+		<div class="content rel fc">
+			<svg class="abs" width="448" height="399" viewBox="0 0 448 399" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g opacity="0.33">
+				<path d="M226.962 287.85C193.497 361.653 81.2842 368.33 50.5527 288.261C38.706 257.369 -9.21108 275.729 2.64155 306.637C50.0671 430.089 221.506 423.947 273.642 309.049C287.542 278.426 240.834 257.167 226.962 287.85Z" fill="#76E2D5"/>
+				<path d="M431 63.5L300.163 4.92862C292.571 -0.409531 282.414 -1.59008 273.642 2.97814L172.998 55.0251V27.7184C172.998 -5.37549 121.701 -5.37548 121.701 27.7184V267.627C121.701 300.721 172.998 300.721 172.998 267.627V112.872L285.594 54.6658L410.5 110C441.51 124.181 464 80 431 63.5Z" fill="#76E2D5"/>
+				</g>
+			</svg>
+			<form action="gracias" method="get" class="fcol rel">
+				<label for="name" class="fcol">
+					<span>Nombre</span>
+					<input type="text" id="name" name="name" placeholder="José Perez" required>
+				</label>
+				<label for="email" class="fcol">
+					<span>Email*</span>
+					<input type="email" id="email" name="email" placeholder="joseperez@tucorreo.com" required>
+				</label>
+				<label for="city" class="fcol">
+					<span>Ciudad*</span>
+					<input type="text" id="city" name="city" placeholder="Arequipa" required>
+				</label>
+				<label for="noti" class="fc">
+					<input type="checkbox" name="noti" id="noti" required>
+					<span>Recibir notificaciones de lanzamiento y promociones</span>
+				</label>
+				<button type="submit" class="btn" data-text="Quiero saber más">Notificarme sobre el lanzamiento</button>
+				<p>Nos importa tu privacidad. No compartiremos tu información.</p>
+			</form>
+		</div>
+	</section>
+	<Footer />
+</Layout>
+
+<style>
+	input {
+		background: white;
+		opacity: 1;
+	}
+	section {
+		width: 100%;
+		max-width: 1288px;
+		margin: auto;
+		padding-inline: 24px;
+	}
+	section header {
+		display: flex;
+		align-items: flex-start;
+		gap: 36px;
+		padding-bottom: 72px;
+	}
+	section header h1 {
+		flex-shrink: 0;
+		display: inline;
+		font-weight: 500;
+		flex-shrink: 0;	
+		padding: 4px 20px;
+		border-radius: 64px;
+		background: #A7EDE4;
+		box-shadow: -12px 0px #BBF2EA, -24px 0px #D7F7F3;
+		margin-left: 24px;
+	}
+	.que {
+		header {
+			padding-bottom: 0 !important;
+		}
+	}
+	.como {
+		.fcol {
+			gap: 24px;
+		}
+		.content {
+			gap: 64px;
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1.5fr 1fr;
+			position: relative;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			position: sticky;
+			top: 24px;
+		}
+	}
+	.testimonios {
+		.content {
+			overflow-x: hidden;
+			background: var(--blue);
+			padding: 64px;
+			gap: 64px;
+			border-radius: 48px;
+			color: var(--white);
+			scrollbar-width: none; /* Firefox */
+			-ms-overflow-style: none; /* Internet Explorer y Edge antiguo */
+		}
+		.content::-webkit-scrollbar {
+			display: none; /* Chrome, Safari y Edge */
+		}
+	}
+	.contacto {
+		label {
+			gap: 4px;
+		}
+		label[for="noti"] {
+			gap: 12px;
+		}
+		#noti {
+			accent-color: var(--sky);
+		}
+		#noti:focus {
+			outline: 2px solid #cdede9;
+		}
+		form {
+			gap: 24px;
+		}
+		svg {
+			right: 64px;
+		}
+		input {
+			color: black;
+		}
+		input:focus {
+			outline: 4px solid var(--sky);
+		}
+		input:focus {
+			outline: 4px solid var(--sky);
+		}
+		::placeholder {
+			color: gray;
+		}
+		.content {
+			background: var(--gray);
+			padding: 64px;
+			border-radius: 48px;
+		}
+		.content p {
+			font-size: 14px;
+			font-weight: 500;
+			text-align: center;
+		}
+	}
+	.beneficios {
+		.content {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 36px;
+		}
+		.card {
+			background: var(--gray);
+			border-radius: 48px;
+			border: 1px solid  #191A23;
+			box-shadow: 0 6px #191A23;
+			padding: 48px;
+			gap: 16px;
+		}
+		.card:nth-child(2) {
+			background: var(--sky);
+			span {
+				background: white;
+			}
+		}
+		.card:nth-child(3) {
+			color: white;
+			background: var(--blue);
+			justify-self: center;
+			grid-column: 1 / 3;
+			max-width: calc(1208px / 2);
+			span {
+				color: var(--blue);
+				background: white;
+			}
+		}
+		.text {
+			gap: 16px;
+			flex-shrink: 1;
+		}
+		img {
+			flex-shrink: 1;
+		}
+		span {
+			font-size: 24px;
+			width: fit-content;
+			background: var(--sky);
+			border-radius: 32px;
+			padding: 5px 20px;
+			font-weight: 500;
+		}
+		span:nth-child(2) {
+			transform: translateY(-8px);
+		}
+		span:nth-child(3) {
+			transform: translateY(-16px);
+		}
+	}
+	.demo {
+		video {
+			width: 100%;
+			border-radius: 48px;
+		}
+	}
+	@media (max-width: 1190px) {
+		.beneficios {
+			.content {
+				grid-template-columns: 1fr;
+			}
+			.card:nth-child(3) {
+				grid-column: unset;
+				max-width: unset;
+			}
+		}
+	}
+	@media (max-width: 1000px) {
+		section header {
+			padding-bottom: 36px;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+		.beneficios {
+			align-items: center;
+
+			.card {
+				flex-direction: column;
+			}
+			.card:nth-child(3) {
+				grid-column: unset;
+				max-width: unset;
+			}
+		}
+		.como {
+			.content {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+	@media (max-width: 700px) {
+		.testimonios {
+			.content {
+				padding: 64px 24px;
+			}
+		}
+		.demo {
+			video {
+				border-radius: 24px;
+			}
+		}
+		.contacto {
+			.content {
+				border-radius: 24px;
+				padding: 24px;
+			}
+			.fcol {
+				width: 100%;
+			}
+			svg {
+				width: calc(100% - 48px);
+				height: auto;
+				right: 24px;
+				left: 24px;
+			}
+		}
+		.beneficios {
+			img {
+				height: unset;
+				width: 40%;
+				align-self: flex-end;
+			}
+			.card {
+				padding: 24px;
+			}
+		}
+	}
+</style>
