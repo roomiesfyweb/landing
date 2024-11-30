@@ -127,7 +127,7 @@ import third from "../images/third.png"
 				<path d="M431 63.5L300.163 4.92862C292.571 -0.409531 282.414 -1.59008 273.642 2.97814L172.998 55.0251V27.7184C172.998 -5.37549 121.701 -5.37548 121.701 27.7184V267.627C121.701 300.721 172.998 300.721 172.998 267.627V112.872L285.594 54.6658L410.5 110C441.51 124.181 464 80 431 63.5Z" fill="#76E2D5"/>
 				</g>
 			</svg>
-			<form action="gracias" method="get" class="fcol rel">
+			<form id="form" action="gracias" method="get" class="fcol rel">
 				<label for="name" class="fcol">
 					<span>Nombre</span>
 					<input type="text" id="name" name="name" placeholder="José Perez" required>
@@ -141,7 +141,7 @@ import third from "../images/third.png"
 					<input type="text" id="city" name="city" placeholder="Arequipa" required>
 				</label>
 				<label for="noti" class="fc">
-					<input type="checkbox" name="noti" id="noti" required>
+					<input type="checkbox" name="noti" id="noti">
 					<span>Recibir notificaciones de lanzamiento y promociones</span>
 				</label>
 				<button type="submit" class="btn" data-text="Quiero saber más">Notificarme sobre el lanzamiento</button>
@@ -151,6 +151,36 @@ import third from "../images/third.png"
 	</section>
 	<Footer />
 </Layout>
+<script>
+	const form = document.getElementById("form") as HTMLFormElement;
+
+	form.addEventListener("submit", async (event) => {
+		event.preventDefault();
+
+		const url = "https://script.google.com/macros/s/AKfycbyZk60WCQl7Ym-djrZSaA1SQgAMMYK8hBFIOqcoIFOLMlc5Oy70XwH0QlOgTFoNenPg7g/exec";
+		const formData = new FormData(form);
+
+		const data = {
+			name: formData.get("name"),
+			email: formData.get("email"),
+			city: formData.get("city"),
+			noti: formData.get("noti") !== null
+		};
+
+		try {
+			await fetch(url, {
+				method: "POST",
+				mode: "no-cors",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(data)
+			});
+
+			window.location.href = `/gracias?email=${encodeURIComponent(data.email as string)}`;
+		} catch (error) {
+			console.error("Error:", error);
+		}
+	});
+</script>
 
 <style>
 	input {

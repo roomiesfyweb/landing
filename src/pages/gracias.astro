@@ -26,6 +26,22 @@ import Footer from "../components/Footer.astro";
 	</main>
 	<Footer />
 </Layout>
+<script>
+	// Función para obtener el valor de un parámetro en la URL
+	function getQueryParameter(name: string) {
+		const urlParams = new URLSearchParams(window.location.search);
+		return urlParams.get(name);
+	}
+
+	// Obtén el correo de los query parameters
+	const email = getQueryParameter('email');
+
+	// Actualiza el contenido del elemento <strong> si hay un correo válido
+	if (email) {
+		const correoElement = document.getElementById('correo') as HTMLElement;
+		correoElement.textContent = email;
+	}
+</script>
 
 <style>
 	.hero {
