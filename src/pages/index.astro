@@ -144,7 +144,7 @@ import third from "../images/third.png"
 					<input type="checkbox" name="noti" id="noti">
 					<span>Recibir notificaciones de lanzamiento y promociones</span>
 				</label>
-				<button type="submit" class="btn" data-text="Quiero saber más">Notificarme sobre el lanzamiento</button>
+				<button id="send" type="submit" class="btn" data-text="Quiero saber más">Notificarme sobre el lanzamiento</button>
 				<p>Nos importa tu privacidad. No compartiremos tu información.</p>
 			</form>
 		</div>
@@ -153,6 +153,7 @@ import third from "../images/third.png"
 </Layout>
 <script>
 	const form = document.getElementById("form") as HTMLFormElement;
+	const btn = document.getElementById("send") as HTMLButtonElement;
 
 	form.addEventListener("submit", async (event) => {
 		event.preventDefault();
@@ -168,6 +169,10 @@ import third from "../images/third.png"
 		};
 
 		try {
+			btn.innerText = "Cargando";
+			btn.setAttribute("data-text", "Cargando");
+			btn.classList.add("loading");
+
 			await fetch(url, {
 				method: "POST",
 				mode: "no-cors",
@@ -178,6 +183,10 @@ import third from "../images/third.png"
 			window.location.href = `/gracias?email=${encodeURIComponent(data.email as string)}`;
 		} catch (error) {
 			console.error("Error:", error);
+		} finally {
+			btn.innerText = "Notificarme";
+			btn.setAttribute("data-text", "Notificarme");
+			btn.classList.remove("loading");
 		}
 	});
 </script>

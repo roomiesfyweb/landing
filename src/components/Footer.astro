@@ -57,15 +57,54 @@
 					</a>
 				</div>
 			</address>
-			<form action="/" class="grow fc g24">
-				<input type="email" placeholder="Email" class="grow">
-				<button type="button" class="btn" data-text="Notificarme">Notificarme</button>
+			<form id="form_footer" action="/" class="grow fc g24">
+				<input type="email" name="email" placeholder="Email" class="grow">
+				<button type="submit" id="footer_btn" class="btn" data-text="Notificarme">Notificarme</button>
 			</form>
 		</div>
 		<hr/>
 		<a href="/#">Política de Privacidad</a>
 	</footer>
 </div>
+<script>
+	const form2 = document.getElementById("form_footer") as HTMLFormElement;
+	const btn = document.getElementById("footer_btn") as HTMLButtonElement;
+
+	form2.addEventListener("submit", async (event) => {
+		event.preventDefault();
+
+		const url = "https://script.google.com/macros/s/AKfycbyZk60WCQl7Ym-djrZSaA1SQgAMMYK8hBFIOqcoIFOLMlc5Oy70XwH0QlOgTFoNenPg7g/exec";
+		const formData = new FormData(form2);
+
+		const data = {
+			name: "-",
+			email: formData.get("email"),
+			city: "-",
+			noti: true
+		};
+
+		try {
+			btn.innerText = "Cargando";
+			btn.setAttribute("data-text", "Cargando");
+			btn.classList.add("loading");
+
+			await fetch(url, {
+				method: "POST",
+				mode: "no-cors",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(data)
+			});
+
+			window.location.href = `/gracias?email=${encodeURIComponent(data.email as string)}`;
+		} catch (error) {
+			console.error("Error:", error);
+		} finally {
+			btn.innerText = "Notificarme";
+			btn.setAttribute("data-text", "Notificarme");
+			btn.classList.remove("loading");
+		}
+	});
+</script>
 
 <style>
 	.ma {

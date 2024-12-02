@@ -169,7 +169,12 @@ const { title } = Astro.props;
 		left: 50%;
 		top: 100%;
 		transition: 0.25s ease-out;
-
+	}
+	.btn.loading {
+		background: darkgray !important;
+	}
+	.btn.loading::before {
+		background: darkgray;
 	}
 	.btn::before {
 		content: '';
