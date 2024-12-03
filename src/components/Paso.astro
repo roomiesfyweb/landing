@@ -7,7 +7,7 @@ interface Props {
 const { num, text } = Astro.props;
 ---
 
-<article id={`paso_${num}`} class="paso">
+<article id={`paso_${num}`} class={`paso ${(num === '01') ? 'active' : ''}`}>
 	<header class="fc between">
 		<h1>Paso {num}</h1>
 		<slot/>
@@ -24,7 +24,7 @@ const { num, text } = Astro.props;
 		box-shadow: 0 6px;
 		transition: 0.25s ease-out;
 	}
-	article:hover {
+	article.active {
 		background: var(--sky);
 	}
 	header {

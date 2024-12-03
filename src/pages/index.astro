@@ -209,7 +209,9 @@ import paso4 from "../images/paso4.png"
 		paso.addEventListener('mouseenter', () => {
 			const paso_id = parseInt(paso.id.substring(5)) - 1;
 			if (paso_id !== activeImage) {
+				pasos[paso_id].classList.add('active');
 				images[paso_id].classList.add('active');
+				pasos[activeImage].classList.remove('active');
 				images[activeImage].classList.remove('active');
 				activeImage = paso_id;
 			}
