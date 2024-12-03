@@ -7,10 +7,14 @@ import Footer from "../components/Footer.astro";
 import Carousel from "../components/Carousel.astro";
 import { Image } from "astro:assets";
 
-import iphone from "../images/iphone.png"
 import first from "../images/first.png"
 import second from "../images/second.png"
 import third from "../images/third.png"
+
+import paso1 from "../images/paso1.png"
+import paso2 from "../images/paso2.png"
+import paso3 from "../images/paso3.png"
+import paso4 from "../images/paso4.png"
 ---
 
 <Layout title="Roomiesfy">
@@ -60,7 +64,7 @@ import third from "../images/third.png"
 			<h1>¿Cómo funciona Roomiesfy?</h1>
 			<p>
 				Con <strong>Roomiesfy</strong>, encontrar a tu roommate ideal será fácil
-				y seguro. Así es cómo funciona.
+				y seguro. Así es como funciona.
 			</p>
 		</header>
 		<div class="content fs">
@@ -78,7 +82,12 @@ import third from "../images/third.png"
 					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
 				</Paso>
 			</div>
-			<Image src={iphone} alt="Caputura de la aplicación de Roomiesfy" width={iphone.width/2} densities={[1,2]} format="avif"/>
+			<div class="image">
+				<Image class="active" src={paso1} alt="Login de Roomiesfy" width={paso1.width/2} densities={[1,2]} format="webp"/>
+				<Image src={paso2} alt="Inicio de Roomiesfy" width={paso2.width/2} densities={[1,2]} format="webp"/>
+				<Image src={paso3} alt="Chat de Roomiesfy" width={paso3.width/2} densities={[1,2]} format="webp"/>
+				<Image src={paso4} alt="Contratos inteligentes en Roomiesfy" width={paso4.width/2} densities={[1,2]} format="webp"/>
+			</div>
 		</div>
 	</section>
 	<section id="demo" class="demo">
@@ -151,6 +160,7 @@ import third from "../images/third.png"
 	</section>
 	<Footer />
 </Layout>
+
 <script>
 	const form = document.getElementById("form") as HTMLFormElement;
 	const btn = document.getElementById("send") as HTMLButtonElement;
@@ -189,6 +199,22 @@ import third from "../images/third.png"
 			btn.classList.remove("loading");
 		}
 	});
+
+	const pasos = document.querySelectorAll('.paso');
+	const images = document.querySelectorAll('.image>img ')
+
+	let activeImage = 0
+
+	for (const paso of pasos) {
+		paso.addEventListener('mouseenter', () => {
+			const paso_id = parseInt(paso.id.substring(5)) - 1;
+			if (paso_id !== activeImage) {
+				images[paso_id].classList.add('active');
+				images[activeImage].classList.remove('active');
+				activeImage = paso_id;
+			}
+		})
+	}
 </script>
 
 <style>
@@ -229,17 +255,28 @@ import third from "../images/third.png"
 			gap: 24px;
 		}
 		.content {
-			gap: 64px;
+			gap: 128px;
 			width: 100%;
 			display: grid;
-			grid-template-columns: 1.5fr 1fr;
+			grid-template-columns: 1.45fr 1fr;
 			position: relative;
 		}
-		img {
-			width: 100%;
-			height: auto;
+		.image {
 			position: sticky;
 			top: 24px;
+			width: 100%;
+			aspect-ratio: auto 431 / 888;
+		}
+		img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: auto;
+			z-index: -1;
+			filter: drop-shadow(0px 20px 10px #aaa);
+		}
+		img.active {
+			z-index: 2;
 		}
 	}
 	.testimonios {
@@ -389,6 +426,7 @@ import third from "../images/third.png"
 		}
 		.como {
 			.content {
+				gap: 64px;
 				grid-template-columns: 1fr;
 			}
 		}
