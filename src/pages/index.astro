@@ -205,17 +205,21 @@ import paso4 from "../images/paso4.png"
 
 	let activeImage = 0
 
+	function hola(e: Event) {
+		const paso = e.target as HTMLElement
+		const paso_id = parseInt(paso.id.substring(5)) - 1;
+		if (paso_id !== activeImage) {
+			pasos[paso_id].classList.add('active');
+			images[paso_id].classList.add('active');
+			pasos[activeImage].classList.remove('active');
+			images[activeImage].classList.remove('active');
+			activeImage = paso_id;
+		}
+	}
+
 	for (const paso of pasos) {
-		paso.addEventListener('mouseenter', () => {
-			const paso_id = parseInt(paso.id.substring(5)) - 1;
-			if (paso_id !== activeImage) {
-				pasos[paso_id].classList.add('active');
-				images[paso_id].classList.add('active');
-				pasos[activeImage].classList.remove('active');
-				images[activeImage].classList.remove('active');
-				activeImage = paso_id;
-			}
-		})
+		paso.addEventListener('mouseenter', hola)
+		paso.addEventListener('click', hola)
 	}
 </script>
 
