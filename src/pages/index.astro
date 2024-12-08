@@ -214,7 +214,7 @@ import paso4 from "../images/paso4.png"
 	const images = document.querySelectorAll('.image>img ')
 
 	function updateTypewriterProgress(element: HTMLElement, text: string, progress: number): void {
-    const lengthToShow = Math.ceil(text.length * progress);
+    const lengthToShow = Math.ceil(text.length * progress * (window.innerWidth < 800 ? 2 : 1));
     element.textContent = text.slice(0, lengthToShow);
   }
 
@@ -245,18 +245,16 @@ import paso4 from "../images/paso4.png"
 					// Actualizar texto dinámicamente según el progreso
 					updateTypewriterProgress(textElement, originalText, progress);
 
-					if (window.innerWidth > 800) {
 					// Cambiar imagen activa solo si el progreso está en la mitad o más
-					if (progress >= 0.25 && progress !== 1) {
-						const pasoId = paso.id;
-						const pasoIndex = parseInt(pasoId.split('_')[1], 10) - 1;
-						images.forEach((image, index) => {
-							image.classList.toggle('active', index === pasoIndex);
-						});
+					if (window.innerWidth > 800) {
+						if (progress >= 0.25 && progress !== 1) {
+							const pasoId = paso.id;
+							const pasoIndex = parseInt(pasoId.split('_')[1], 10) - 1;
+							images.forEach((image, index) => {
+								image.classList.toggle('active', index === pasoIndex);
+							});
+						}
 					}
-					}
-					
-				// }
 			});
 		},
 		{
