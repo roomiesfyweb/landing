@@ -79,12 +79,12 @@
 	</button>
 </nav>
 <script>
-	const slider = document.getElementById("slider");
+	const slider = document.getElementById("slider") as HTMLElement;
 	const track = slider.querySelector(".slider-track") as HTMLElement;
 	const articles = Array.from(track.children);
 	const circles = document.querySelectorAll(".circle");
-	const prevButton = document.getElementById("prev");
-	const nextButton = document.getElementById("next");
+	const prevButton = document.getElementById("prev") as HTMLElement;
+	const nextButton = document.getElementById("next") as HTMLElement;
 
 	let index = 1; // 0 1 2 3 4
 
