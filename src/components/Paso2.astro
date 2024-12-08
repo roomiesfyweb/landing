@@ -1,0 +1,109 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+	num: string;
+	title: string;
+	text: string;
+	src: ImageMetadata;
+}
+
+const { num, title, text, src } = Astro.props;
+---
+
+<div id={`paso_${num}`} class="container rel paso">
+	<article class="fcol">
+		<header>
+			<h2>Paso {num}:</h2>
+			<h1>{title} <slot/></h1>
+			<p>{text}</p>
+		</header>
+		<Image class="active" {src} alt={title} width={src.width/2} densities={[1,2]} format="webp"/>
+	</article>
+</div>
+
+<style>
+	.container {
+		min-height: 100dvh;
+	}
+	article {
+		position: sticky;
+		top: 30vh;
+		padding-block: 48px;
+		gap: 12px;
+		height: 47vh;
+	}
+	article :global(svg) {
+		display: inline;
+    vertical-align: middle;
+    margin-bottom: 16px;
+	}
+	h1 {
+		color: var(--sky);
+		font-size: 72px;
+		line-height: 1;
+		font-weight: 700;
+		padding-bottom: 0.5rem;
+	}
+	h2 {
+		line-height: 1;
+		padding-bottom: 4px;
+		font-size: 48px;
+		color: var(--blue);
+	}
+	p {
+		font-size: 26px;
+	}
+	img {
+		/* display: none;
+		width: 100%;
+		height: auto; */
+		display: none;
+    width: auto;
+    height: 97px;
+    flex: 1 0 0;
+    align-self: center;
+	}
+	@media (max-width: 1000px) {
+		article {
+			top: 0;
+			height: 36vh;
+			padding-block: 24px;
+		}
+		h1 {
+			font-size: 50px;
+		}
+		h2 {
+			font-size: 40px;
+		}
+		article :global(svg) {
+			width: 48px;
+			height: 48px;
+		}
+		p {
+			font-size: 22px;
+		}
+	}
+	@media (max-width: 800px) {
+		img {
+			display: block;
+		}
+		h2 {
+			font-size: 22px;
+		}
+		h1 {
+			font-size: 32px;
+		}
+		p {
+			font-size: 18px;
+		}
+		article {
+			height: 100svh;
+		}
+		article :global(svg) {
+			width: 32px;
+			height: 32px;
+			margin-bottom: 8px;
+		}
+	}
+</style>

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Paso from "../components/Paso.astro";
+import NuevoPaso from "../components/Paso2.astro"
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
@@ -67,20 +67,30 @@ import paso4 from "../images/paso4.png"
 				y seguro. Así es como funciona.
 			</p>
 		</header>
-		<div class="content fs">
-			<div class="fcol">
-				<Paso num="01" text="Crea tu perfil y personalízalo según tus preferencias y estilo de vida.">
-					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
-				</Paso>
-				<Paso num="02" text="Encuentra matches compatibles que cumplen con tus intereses y expectativas de convivencia.">
-					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-				</Paso>
-				<Paso num="03" text="Visita el espacio virtualmente y chatea con tus posibles roommates.">
-					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
-				</Paso>
-				<Paso num="04" text="Finaliza el acuerdo con un contrato digital y comienza una convivencia ideal.">
-					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-				</Paso>
+		<div class="content">
+			<div class="pasos">
+				<NuevoPaso num="01" src={paso1} title="Crea tu Perfil" text="Empieza por lo más sencillo. Crea tu perfil y personalízalo según tus preferencias y estilo de vida.">
+					<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+				</NuevoPaso>
+				<NuevoPaso num="02" src={paso2} title="Haz Match" text="Ahora, tan solo encuentra matches compatibles que cumplen con tus intereses y expectativas de convivencia.">
+					<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+				</NuevoPaso>
+				<NuevoPaso num="03" src={paso3} title="Conversa" text="Visita el espacio virtualmente y chatea con tus posibles roommates.">
+					<svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M20.0798 50.0001C24.8512 52.4478 30.34 53.1107 35.557 51.8696C40.774 50.6284 45.3762 47.5647 48.5342 43.2306C51.6922 38.8964 53.1983 33.5769 52.7812 28.2305C52.3642 22.8841 50.0512 17.8625 46.2593 14.0706C42.4674 10.2787 37.4457 7.96575 32.0994 7.54866C26.753 7.13157 21.4335 8.63773 17.0993 11.7957C12.7652 14.9537 9.70151 19.5559 8.46034 24.7729C7.21917 29.9899 7.88214 35.4787 10.3298 40.2501L10.3298 50.0001H20.0798Z" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M20.3298 30H20.3548" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M30.3298 30H30.3548" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M40.3298 30H40.3548" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</NuevoPaso>
+				<NuevoPaso num="04" src={paso4} title="Firma!" text="Finaliza el acuerdo con un contrato digital y comienza una convivencia ideal.">
+					<svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M37.8298 5H15.3298C14.0038 5 12.732 5.52678 11.7943 6.46447C10.8566 7.40215 10.3298 8.67392 10.3298 10V50C10.3298 51.3261 10.8566 52.5979 11.7943 53.5355C12.732 54.4732 14.0038 55 15.3298 55H45.3298C46.6559 55 47.9277 54.4732 48.8654 53.5355C49.803 52.5979 50.3298 51.3261 50.3298 50V17.5L37.8298 5Z" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M32 5V17C32 18.5913 32.6321 20.1174 33.7574 21.2426C34.8826 22.3679 36.4087 23 38 23H50" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M30.3298 33H20.3298" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M40.3298 44H20.3298" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</NuevoPaso>
 			</div>
 			<div class="image">
 				<Image class="active" src={paso1} alt="Login de Roomiesfy" width={paso1.width/2} densities={[1,2]} format="webp"/>
@@ -203,24 +213,78 @@ import paso4 from "../images/paso4.png"
 	const pasos = document.querySelectorAll('.paso');
 	const images = document.querySelectorAll('.image>img ')
 
-	let activeImage = 0
+	function updateTypewriterProgress(element: HTMLElement, text: string, progress: number): void {
+    const lengthToShow = Math.ceil(text.length * progress);
+    element.textContent = text.slice(0, lengthToShow);
+  }
 
-	function hola(e: Event) {
-		const paso = e.target as HTMLElement
-		const paso_id = parseInt(paso.id.substring(5)) - 1;
-		if (paso_id !== activeImage) {
-			pasos[paso_id].classList.add('active');
-			images[paso_id].classList.add('active');
-			pasos[activeImage].classList.remove('active');
-			images[activeImage].classList.remove('active');
-			activeImage = paso_id;
+  // IntersectionObserver setup
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				
+					const paso = entry.target as HTMLElement;
+					const textElement = paso.querySelector('p');
+					if (!textElement) return;
+
+					const originalText = textElement.getAttribute('data-original-text') || textElement.textContent || '';
+					if (!textElement.getAttribute('data-original-text')) {
+						textElement.setAttribute('data-original-text', originalText);
+					}
+
+					// Calcular progreso basado en la intersección (solo cuando el paso está cerca del centro)
+					const boundingBox = entry.boundingClientRect;
+					const progress = Math.min(
+						Math.max(
+							(window.innerHeight / 1 - boundingBox.top) / boundingBox.height,
+							0
+						),
+						1
+					);
+
+					// Actualizar texto dinámicamente según el progreso
+					updateTypewriterProgress(textElement, originalText, progress);
+
+					if (window.innerWidth > 800) {
+					// Cambiar imagen activa solo si el progreso está en la mitad o más
+					if (progress >= 0.25 && progress !== 1) {
+						const pasoId = paso.id;
+						const pasoIndex = parseInt(pasoId.split('_')[1], 10) - 1;
+						images.forEach((image, index) => {
+							image.classList.toggle('active', index === pasoIndex);
+						});
+					}
+					}
+					
+				// }
+			});
+		},
+		{
+			threshold: Array.from({ length: 51 }, (_, i) => i / 50)
 		}
-	}
+	);
 
-	for (const paso of pasos) {
-		paso.addEventListener('mouseenter', hola)
-		paso.addEventListener('click', hola)
-	}
+  // Observar pasos
+  pasos.forEach((paso) => observer.observe(paso));
+
+	// let activeImage = 0
+
+	// function hola(e: Event) {
+	// 	const paso = e.target as HTMLElement
+	// 	const paso_id = parseInt(paso.id.substring(5)) - 1;
+	// 	if (paso_id !== activeImage) {
+	// 		pasos[paso_id].classList.add('active');
+	// 		images[paso_id].classList.add('active');
+	// 		pasos[activeImage].classList.remove('active');
+	// 		images[activeImage].classList.remove('active');
+	// 		activeImage = paso_id;
+	// 	}
+	// }
+
+	// for (const paso of pasos) {
+	// 	paso.addEventListener('mouseenter', hola)
+	// 	paso.addEventListener('click', hola)
+	// }
 </script>
 
 <style>
@@ -269,21 +333,22 @@ import paso4 from "../images/paso4.png"
 		}
 		.image {
 			position: sticky;
-			top: 24px;
-			width: 100%;
+			top: 48px;
+			height: calc(100dvh - 96px);
+			max-width: 480px;
 			aspect-ratio: auto 431 / 888;
 		}
-		img {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: auto;
-			z-index: -1;
-			filter: drop-shadow(0px 20px 10px #aaa);
-		}
-		img.active {
-			z-index: 2;
-		}
+	}
+	.como img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: auto;
+		z-index: -1;
+		filter: drop-shadow(0px 20px 10px #aaa);
+	}
+	.como img.active {
+		z-index: 2;
 	}
 	.testimonios {
 		.content {
@@ -430,10 +495,17 @@ import paso4 from "../images/paso4.png"
 				max-width: unset;
 			}
 		}
+		.content {
+			gap: 64px;
+		}
+	}
+	@media (max-width: 800px) {
 		.como {
 			.content {
-				gap: 64px;
 				grid-template-columns: 1fr;
+			}
+			.image {
+				display: none;
 			}
 		}
 	}
